@@ -1,0 +1,22 @@
+id,sku,title,description,vendor,collection,material,gsm,width,countryOfOrigin,price,compareAtPrice,badge,availability,stockQuantity
+1,SILK-001,Premium Italian Silk Fabric,Luxurious 100% pure silk fabric imported from Italy,Italian Textiles,Silk,Silk,80,150,Italy,89.99,119.99,bestseller,in_stock,25
+2,COTTON-001,Organic Cotton Premium Fabric,100% organic cotton fabric for sustainable fashion,Organic Textiles,Cotton,Cotton,180,140,India,49.99,,new,in_stock,50
+3,WOOL-001,Cashmere Blend Wool Fabric,Soft cashmere blend wool perfect for winter garments,Luxury Wool,Wool,Cashmere Blend,200,160,Scotland,129.99,159.99,bestseller,in_stock,15
+4,LINEN-001,Premium Linen Natural Fabric,100% natural linen fabric ideal for summer collections,Natural Fabrics,Linen,Linen,150,145,Belgium,59.99,,new,in_stock,30
+5,SILK-002,Silk Chiffon Delicate Fabric,Lightweight silk chiffon for elegant draping,Italian Textiles,Silk,Silk Chiffon,45,145,Italy,79.99,99.99,,in_stock,20
+6,COTTON-002,Egyptian Cotton Premium,Extra-long staple Egyptian cotton for luxury bedding,Egyptian Cotton,Cotton,Egyptian Cotton,200,180,Egypt,69.99,,bestseller,in_stock,40
+7,WOOL-002,Merino Wool Soft Fabric,Fine merino wool fabric from New Zealand,New Zealand Wool,Wool,Merino Wool,180,155,New Zealand,89.99,109.99,,in_stock,25
+8,LINEN-002,French Linen Classic,Traditional French linen known for durability,French Linen,Linen,Linen,170,150,France,54.99,,,in_stock,35
+9,SILK-003,Satin Silk Luxury Fabric,Glossy satin silk for evening wear and accessories,Italian Textiles,Silk,Satin Silk,75,150,Italy,95.99,125.99,bestseller,in_stock,18
+10,COTTON-003,Bamboo Cotton Blend,Soft bamboo cotton blend fabric,Eco Textiles,Cotton,Bamboo Cotton,160,140,China,44.99,,eco,in_stock,45
+11,WOOL-003,Alpaca Wool Luxurious,Premium alpaca wool from Peru,Peruvian Wool,Wool,Alpaca,220,160,Peru,119.99,149.99,,in_stock,12
+12,LINEN-003,Irish Linen Traditional,Classic Irish linen fabric,Irish Linen,Linen,Linen,165,145,Ireland,64.99,,,in_stock,28
+13,SILK-004,Crepe Silk Elegant,Textured crepe silk for sophisticated garments,Italian Textiles,Silk,Crepe Silk,70,145,Italy,85.99,110.99,,in_stock,22
+14,COTTON-004,Organic Cotton Jersey,Stretchy organic cotton jersey for comfortable wear,Organic Textiles,Cotton,Organic Cotton Jersey,190,140,India,39.99,,new,in_stock,55
+15,WOOL-004,Lambswool Soft Fabric,Gentle lambswool perfect for baby clothing,Soft Wool,Wool,Lambswool,175,155,Scotland,74.99,,,in_stock,30
+16,LINEN-004,Belgian Linen Premium,High-quality Belgian linen,Belgian Linen,Linen,Linen,160,150,Belgium,69.99,,bestseller,in_stock,20
+17,SILK-005,Dupioni Silk Textured,Unique dupioni silk with natural slubs,Asian Textiles,Silk,Dupioni Silk,85,148,India,92.99,122.99,,in_stock,16
+18,COTTON-005,Denim Premium Fabric,Heavyweight premium denim,Cotton Denim,Cotton,Denim,350,150,USA,79.99,,,in_stock,25
+19,WOOL-005,Shetland Wool Traditional,Traditional Shetland wool from Scotland,Scottish Wool,Wool,Shetland Wool,195,160,Scotland,84.99,104.99,,in_stock,18
+20,LINEN-005,Linen Canvas Sturdy,Heavy-duty linen canvas for bags and upholstery,Linen Canvas,Linen,Linen Canvas,280,145,France,74.99,,,in_stock,15
+

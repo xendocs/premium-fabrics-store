@@ -1,0 +1,448 @@
+import { NextResponse } from 'next/server';
+
+// Featured premium fabric products
+const mockProducts = [
+  {
+    id: '1',
+    sku: 'SILK-001',
+    title: 'Luxe Silk Charmeuse',
+    description: 'Experience the epitome of luxury with our premium Italian Silk Charmeuse. This exquisite 100% pure silk fabric features an incredibly smooth texture with a lustrous satin finish on one side and a soft matte finish on the reverse. With a lightweight 80 GSM and elegant drape, it flows beautifully making it the perfect choice for evening gowns, bridal wear, luxury lingerie, and high-end garments.',
+    vendor: 'Italian Textiles Co.',
+    collection: 'Silk',
+    material: 'Silk',
+    gsm: 80,
+    width: 140,
+    colorways: [
+      { id: '1', name: 'Champagne Gold', hex: '#c89116' },
+      { id: '2', name: 'Midnight Navy', hex: '#1a1a2e' },
+      { id: '3', name: 'Ruby Wine', hex: '#8b1538' },
+    ],
+    care: ['dry-clean', 'cool-iron', 'no-bleach', 'no-tumble-dry'],
+    countryOfOrigin: 'Italy',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 0.5, maxLength: 10, increment: 0.5 },
+      { unit: 'yard', minLength: 0.5, maxLength: 11, increment: 0.5 },
+    ],
+    price: 899,
+    compareAtPrice: 1199,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/silk-charmeuse.jpg',
+        alt: 'Luxe Silk Charmeuse Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'SILK-001-GOLD',
+        title: 'Champagne Gold',
+        colorway: { id: '1', name: 'Champagne Gold', hex: '#c89116' },
+        price: 899,
+        compareAtPrice: 1199,
+        stockQuantity: 30,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['luxury', 'silk', 'italian', 'bestseller'],
+    certifications: ['OEKO-TEX Standard 100'],
+    availability: 'in_stock',
+    stockQuantity: 30,
+    badge: null,
+    createdAt: '2024-01-15',
+    updatedAt: '2024-01-20',
+  },
+  {
+    id: '2',
+    sku: 'COTTON-002',
+    title: 'Organic Egyptian Cotton',
+    description: 'Ultra-soft 100% organic Egyptian cotton with superior breathability. Certified sustainable and eco-friendly.',
+    vendor: 'Eco Textiles Global',
+    collection: 'Cotton',
+    material: 'Cotton',
+    gsm: 180,
+    width: 150,
+    colorways: [
+      { id: '1', name: 'Natural White', hex: '#f8f6f0' },
+      { id: '2', name: 'Sage Green', hex: '#87a96b' },
+      { id: '3', name: 'Dusty Rose', hex: '#dcae96' },
+    ],
+    care: ['machine-wash', 'warm-iron', 'tumble-dry-low', 'no-bleach'],
+    countryOfOrigin: 'Egypt',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 1, maxLength: 20, increment: 0.5 },
+      { unit: 'yard', minLength: 1, maxLength: 22, increment: 0.5 },
+    ],
+    price: 449,
+    compareAtPrice: 599,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/organic-cotton.jpg',
+        alt: 'Organic Egyptian Cotton Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'COTTON-002-WHITE',
+        title: 'Natural White',
+        colorway: { id: '1', name: 'Natural White', hex: '#f8f6f0' },
+        price: 449,
+        compareAtPrice: 599,
+        stockQuantity: 50,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['organic', 'cotton', 'sustainable', 'eco-friendly'],
+    certifications: ['GOTS', 'OEKO-TEX Standard 100'],
+    availability: 'in_stock',
+    stockQuantity: 50,
+    badge: null,
+    createdAt: '2024-01-10',
+    updatedAt: '2024-01-18',
+  },
+  {
+    id: '3',
+    sku: 'VELVET-003',
+    title: 'Royal Velvet Premium',
+    description: 'Luxurious cotton velvet with a deep pile and sumptuous feel. Ideal for upholstery and haute couture.',
+    vendor: 'Velvet House London',
+    collection: 'Velvet',
+    material: 'Cotton Velvet',
+    gsm: 320,
+    width: 145,
+    colorways: [
+      { id: '1', name: 'Deep Emerald', hex: '#0c5e4c' },
+      { id: '2', name: 'Royal Purple', hex: '#4a148c' },
+      { id: '3', name: 'Midnight Black', hex: '#0a0a0a' },
+    ],
+    care: ['dry-clean', 'no-iron', 'no-bleach', 'no-tumble-dry'],
+    countryOfOrigin: 'United Kingdom',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 0.5, maxLength: 15, increment: 0.5 },
+      { unit: 'yard', minLength: 0.5, maxLength: 16, increment: 0.5 },
+    ],
+    price: 749,
+    compareAtPrice: 999,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/royal-velvet.jpg',
+        alt: 'Royal Velvet Premium Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'VELVET-003-EMERALD',
+        title: 'Deep Emerald',
+        colorway: { id: '1', name: 'Deep Emerald', hex: '#0c5e4c' },
+        price: 749,
+        compareAtPrice: 999,
+        stockQuantity: 20,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['luxury', 'velvet', 'premium', 'upholstery'],
+    certifications: ['OEKO-TEX Standard 100'],
+    availability: 'in_stock',
+    stockQuantity: 20,
+    badge: null,
+    createdAt: '2024-01-20',
+    updatedAt: '2024-01-22',
+  },
+  {
+    id: '4',
+    sku: 'WEAVE-004',
+    title: 'Heritage Jacquard Weave',
+    description: 'Intricate jacquard pattern with metallic threads. Traditional craftsmanship meets modern design.',
+    vendor: 'Heritage Weavers India',
+    collection: 'Festive',
+    material: 'Silk Blend',
+    gsm: 200,
+    width: 110,
+    colorways: [
+      { id: '1', name: 'Gold & Burgundy', hex: '#8b1538' },
+      { id: '2', name: 'Silver & Navy', hex: '#1a1a2e' },
+      { id: '3', name: 'Copper & Cream', hex: '#b1664b' },
+    ],
+    care: ['dry-clean', 'no-iron', 'no-bleach', 'no-tumble-dry'],
+    countryOfOrigin: 'India',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 1, maxLength: 8, increment: 0.5 },
+      { unit: 'yard', minLength: 1, maxLength: 9, increment: 0.5 },
+    ],
+    price: 999,
+    compareAtPrice: 1299,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/jacquard-weave.jpg',
+        alt: 'Heritage Jacquard Weave Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'WEAVE-004-GOLD',
+        title: 'Gold & Burgundy',
+        colorway: { id: '1', name: 'Gold & Burgundy', hex: '#8b1538' },
+        price: 999,
+        compareAtPrice: 1299,
+        stockQuantity: 12,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['luxury', 'jacquard', 'festive', 'traditional'],
+    certifications: ['Handloom Mark'],
+    availability: 'in_stock',
+    stockQuantity: 12,
+    badge: null,
+    createdAt: '2024-01-18',
+    updatedAt: '2024-01-21',
+  },
+  {
+    id: '5',
+    sku: 'LINEN-005',
+    title: 'Belgian Pure Linen',
+    description: 'Premium European linen with natural texture and excellent breathability. Perfect for summer wear.',
+    vendor: 'Linen & Co Belgium',
+    collection: 'Linen',
+    material: 'Linen',
+    gsm: 160,
+    width: 150,
+    colorways: [
+      { id: '1', name: 'Natural Beige', hex: '#e8d5c4' },
+      { id: '2', name: 'Ocean Blue', hex: '#4a7c9e' },
+      { id: '3', name: 'Olive Green', hex: '#6b7e3f' },
+    ],
+    care: ['machine-wash', 'warm-iron', 'tumble-dry-low', 'no-bleach'],
+    countryOfOrigin: 'Belgium',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 1, maxLength: 15, increment: 0.5 },
+      { unit: 'yard', minLength: 1, maxLength: 16, increment: 0.5 },
+    ],
+    price: 549,
+    compareAtPrice: 749,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/belgian-linen.jpg',
+        alt: 'Belgian Pure Linen Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'LINEN-005-BEIGE',
+        title: 'Natural Beige',
+        colorway: { id: '1', name: 'Natural Beige', hex: '#e8d5c4' },
+        price: 549,
+        compareAtPrice: 749,
+        stockQuantity: 40,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['natural', 'linen', 'breathable', 'summer'],
+    certifications: ['European Flax', 'OEKO-TEX Standard 100'],
+    availability: 'in_stock',
+    stockQuantity: 40,
+    badge: null,
+    createdAt: '2024-01-12',
+    updatedAt: '2024-01-19',
+  },
+  {
+    id: '6',
+    sku: 'SATIN-006',
+    title: 'Duchess Satin Deluxe',
+    description: 'Heavy luxury satin with exceptional sheen. Perfect for bridal wear and formal occasions.',
+    vendor: 'French Fabrics Maison',
+    collection: 'Silk',
+    material: 'Polyester Satin',
+    gsm: 250,
+    width: 150,
+    colorways: [
+      { id: '1', name: 'Ivory Pearl', hex: '#fffff0' },
+      { id: '2', name: 'Champagne', hex: '#f7e7ce' },
+      { id: '3', name: 'Blush Pink', hex: '#ffc1cc' },
+    ],
+    care: ['dry-clean', 'cool-iron', 'no-bleach', 'no-tumble-dry'],
+    countryOfOrigin: 'France',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 1, maxLength: 12, increment: 0.5 },
+      { unit: 'yard', minLength: 1, maxLength: 13, increment: 0.5 },
+    ],
+    price: 649,
+    compareAtPrice: 849,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/duchess-satin.jpg',
+        alt: 'Duchess Satin Deluxe Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'SATIN-006-IVORY',
+        title: 'Ivory Pearl',
+        colorway: { id: '1', name: 'Ivory Pearl', hex: '#fffff0' },
+        price: 649,
+        compareAtPrice: 849,
+        stockQuantity: 35,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['luxury', 'satin', 'bridal', 'formal'],
+    certifications: ['OEKO-TEX Standard 100'],
+    availability: 'in_stock',
+    stockQuantity: 35,
+    badge: null,
+    createdAt: '2024-01-14',
+    updatedAt: '2024-01-20',
+  },
+  {
+    id: '7',
+    sku: 'WOOL-007',
+    title: 'Merino Wool Suiting',
+    description: 'Fine Australian merino wool perfect for tailored suits and elegant outerwear. Year-round comfort.',
+    vendor: 'Australian Wool Traders',
+    collection: 'Wool',
+    material: 'Merino Wool',
+    gsm: 280,
+    width: 150,
+    colorways: [
+      { id: '1', name: 'Charcoal Grey', hex: '#36454f' },
+      { id: '2', name: 'Navy Pinstripe', hex: '#1a1a2e' },
+      { id: '3', name: 'Classic Black', hex: '#0a0a0a' },
+    ],
+    care: ['dry-clean', 'no-iron', 'no-bleach', 'no-tumble-dry'],
+    countryOfOrigin: 'Australia',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 2, maxLength: 15, increment: 0.5 },
+      { unit: 'yard', minLength: 2, maxLength: 16, increment: 0.5 },
+    ],
+    price: 849,
+    compareAtPrice: 1099,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/merino-wool.jpg',
+        alt: 'Merino Wool Suiting Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'WOOL-007-GREY',
+        title: 'Charcoal Grey',
+        colorway: { id: '1', name: 'Charcoal Grey', hex: '#36454f' },
+        price: 849,
+        compareAtPrice: 1099,
+        stockQuantity: 25,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['wool', 'merino', 'suiting', 'premium'],
+    certifications: ['Responsible Wool Standard'],
+    availability: 'in_stock',
+    stockQuantity: 25,
+    badge: null,
+    createdAt: '2024-01-16',
+    updatedAt: '2024-01-21',
+  },
+  {
+    id: '8',
+    sku: 'BROCADE-008',
+    title: 'Golden Brocade Silk',
+    description: 'Opulent silk brocade with intricate metallic patterns. Perfect for festive and ceremonial attire.',
+    vendor: 'Heritage Weavers India',
+    collection: 'Festive',
+    material: 'Silk Brocade',
+    gsm: 220,
+    width: 110,
+    colorways: [
+      { id: '1', name: 'Gold & Crimson', hex: '#dc143c' },
+      { id: '2', name: 'Royal Blue & Gold', hex: '#4169e1' },
+      { id: '3', name: 'Emerald & Gold', hex: '#50c878' },
+    ],
+    care: ['dry-clean', 'no-iron', 'no-bleach', 'no-tumble-dry'],
+    countryOfOrigin: 'India',
+    unitLengthOptions: [
+      { unit: 'meter', minLength: 1, maxLength: 8, increment: 0.5 },
+      { unit: 'yard', minLength: 1, maxLength: 9, increment: 0.5 },
+    ],
+    price: 999,
+    compareAtPrice: 1399,
+    images: [
+      {
+        id: '1',
+        url: '/images/products/golden-brocade.jpg',
+        alt: 'Golden Brocade Silk Fabric',
+        width: 1200,
+        height: 1600,
+      },
+    ],
+    variants: [
+      {
+        id: '1',
+        sku: 'BROCADE-008-GOLD',
+        title: 'Gold & Crimson',
+        colorway: { id: '1', name: 'Gold & Crimson', hex: '#dc143c' },
+        price: 999,
+        compareAtPrice: 1399,
+        stockQuantity: 15,
+        availability: 'in_stock',
+      },
+    ],
+    tags: ['luxury', 'brocade', 'festive', 'handwoven'],
+    certifications: ['Handloom Mark', 'GI Tagged'],
+    availability: 'in_stock',
+    stockQuantity: 15,
+    badge: null,
+    createdAt: '2024-01-17',
+    updatedAt: '2024-01-21',
+  },
+];
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const collection = searchParams.get('collection');
+  const search = searchParams.get('search');
+
+  let products = [...mockProducts];
+
+  if (collection) {
+    products = products.filter(
+      (p) => p.collection.toLowerCase() === collection.toLowerCase()
+    );
+  }
+
+  if (search) {
+    const searchLower = search.toLowerCase();
+    products = products.filter(
+      (p) =>
+        p.title.toLowerCase().includes(searchLower) ||
+        p.description.toLowerCase().includes(searchLower) ||
+        p.material.toLowerCase().includes(searchLower)
+    );
+  }
+
+  return NextResponse.json(products);
+}
+

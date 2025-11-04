@@ -1,0 +1,15 @@
+# Collection images directory
+
+This directory contains images for the featured collections section.
+
+If you update an image and it doesn't reflect in the browser:
+
+1. Hard refresh: Cmd + Shift + R (Mac) or Ctrl + Shift + R (Windows)
+2. Clear browser cache
+3. Restart dev server: 
+   - Stop server (Ctrl+C)
+   - Run: rm -rf .next
+   - Run: npm run dev
+
+Images are set to no-cache in development for instant updates.
+
